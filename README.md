@@ -14,18 +14,20 @@ The project synchronizes watched movies data between Trakt.Tv and TheMovieDB.org
 project_root/
 │
 ├── src/
-│   ├── init.py
+│   ├── __init__.py
 │   ├── main.py
 │   ├── trakt_oauth_helper.py    
 │   └── trakt_scraper.py
 │
 ├── data/
-│   ├── watched_movies.csv
-│   └── tmdb_watched_movies.csv
+│   ├── sample_watched_movies.csv
+│   └── sample_updated_watched_movies.csv
 │
 ├── venv/
 │
 ├── .env
+├── LICENSE
+├── README.md
 └── requirements.txt
 ```
 
@@ -43,7 +45,7 @@ __TheMovieDB.org APP Registration:__
 
 - Start by creating an account at <https://www.themoviedb.org>
 - Go under Account> Settings> API
-- Register your APP filling the required fields
+- Register your application filling the required fields
 - Take note of the API key
 
 __Trakt.tv Registration and OAuth Authorization:__
@@ -74,16 +76,17 @@ First, make sure you have registered your application on Trakt.tv:
    Create a `.env` file in the root directory and add your credential keys by running the built-in Linux text editor:
    `nano .env`
    Once inside the editor (or your IDE of choice editor) add the following:
-   `TMDB_API_KEY=your_api_key_here`
-   `TRAKT_CLIENT_SECRET=your_client_secret_here`
-   `TRAKT_CLIENT_ID=your_client_id_here`
-   Replace `your_credential_here` with your actual credentials obtained in the steps above. Save the file.
-   The following credentials will be provided once the `trakt_oauth_helper.py` is run:
+   `TMDB_API_KEY=your_themoviedb_api_key_here`
+   `TRAKT_CLIENT_SECRET=your_trakt_client_secret_here`
+   `TRAKT_CLIENT_ID=your_trakt_client_id_here`
+   Replace `your_credential_here` with your actual credentials obtained in the previous steps above.
+   Save the file.
+   Run `trakt_oauth_helper.py` and copy the credentials from the output:
    `TRAKT_ACCESS_TOKEN=your_access_token_here`
    `TRAKT_REFRESH_TOKEN=your_refresh_token_here`
-   Take note of the output and save the `.env` file again.
-
-4. __Run the Script__:
+   Edit and save the `.env` file again.
+   
+5. __Run the Script__:
    Execute the main script:
    `python src/main.py`
 
