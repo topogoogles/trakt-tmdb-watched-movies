@@ -1,4 +1,4 @@
-# TMDB Watched Movies Sync Project
+# TRAKT TMDB Watched Movies
 
 The project synchronizes watched movies data between Trakt.Tv and TheMovieDB.org fetching additional movie details and serving two updated CSV local files containing the databases with this information.
 
