@@ -4,7 +4,6 @@ import os
 from dotenv import load_dotenv
 from trakt_scraper import create_watched_movies_csv
 
-
 # Load environment variables
 load_dotenv(dotenv_path=".env")
 
@@ -95,6 +94,37 @@ def main():
                     # Add new column
                     merged_df[col] = merged_df[new_col]
                 merged_df.drop(new_col, axis=1, inplace=True)
+
+    # Reorder columns
+    desired_order = [
+        "Title",
+        "Year",
+        "WatchedAt",
+        "Plays",
+        "Tagline",
+        "ReleaseDate",
+        "Runtime",
+        "Overview",
+        "VoteAverage",
+        "VoteCount",
+        "Popularity",
+        "Genres",
+        "ProductionCompanies",
+        "Slug",
+        "TraktId",
+        "ImdbId",
+        "TmdbId",
+        "PosterPath",
+        "BackdropPath",
+    ]
+
+    # Ensure all desired columns exist, add empty ones if missing
+    for col in desired_order:
+        if col not in merged_df.columns:
+            merged_df[col] = ""
+
+    # Reorder the columns
+    merged_df = merged_df[desired_order]
 
     # Save the updated DataFrame to a new CSV file
     merged_df.to_csv("data/updated_watched_movies.csv", index=False)
