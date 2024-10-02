@@ -3,6 +3,7 @@ import requests
 import os
 from dotenv import load_dotenv
 from trakt_scraper import create_watched_movies_csv
+from notion_uploader import upload_to_notion
 
 # Load environment variables
 load_dotenv(dotenv_path=".env")
@@ -50,7 +51,6 @@ def main():
     for index, row in df.iterrows():
         tmdb_id = row["TmdbId"]
         movie_details = get_movie_details(tmdb_id)
-
         if movie_details:
             new_movie = {
                 "TmdbId": tmdb_id,
@@ -135,6 +135,9 @@ def main():
     print(f"Number of rows: {len(merged_df)}")
     print("\nFirst 5 rows of the updated CSV:")
     print(merged_df.head())
+
+    # Upload data to Notion
+    upload_to_notion()
 
 
 if __name__ == "__main__":
