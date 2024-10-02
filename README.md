@@ -1,6 +1,6 @@
 # TRAKT TMDB Watched Movies with Notion Integration
 
-This project synchronizes watched movies data between [https://trakt.tv/](Trakt.TV) and [https://www.themoviedb.org/](The Movie Database - TMDB), fetching additional movie details and serving two updated CSV local files containing the databases with this information. It now also integrates with Notion, allowing you to upload the movie data to a Notion database.
+This project synchronizes watched movies data between [Trakt.tv](https://trakt.tv) and [TMDB - The Movie Database](https://www.themoviedb.org), fetching additional movie details and serving two updated CSV local files containing the databases with this information. It now also integrates with Notion, allowing you to upload the movie data to a [Notion](https://notion.so) database.
 
 ## Project Goals
 
